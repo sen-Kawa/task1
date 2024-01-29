@@ -5,13 +5,15 @@ git clone https://github.com/sen-Kawa/task1.git
 ```
 ### Build and Run
 ```
-docker compose build
-```
-```
-docker compose up -d
+docker compose up --build
 ```
 
-### Use
+Access FastAPI in your browser `0.0.0.0:8000`
+
+### To interact with MongoDB
+```
+docker compose up --build -d
+```
 Execute an interactive shell in the container:
 ```
 docker exec -it [ CONTAINER NAME ] bash

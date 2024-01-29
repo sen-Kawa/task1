@@ -10,3 +10,11 @@ Built based on the [Dockerfile](../../data_retrieval_script/Dockerfile)
 - Copies the script into the container.
 - Gives exectuting rights to the script.
 - Runs the script.
+### fastapi
+Built based on the [Dockerfile](../../fastapi/Dockerfile)
+#### Dockerfile 
+- Builds from [image](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker)
+- Copies the app directory
+- Installs python library pymongo
+- Exposes port 8000
+
