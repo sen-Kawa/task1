@@ -1,18 +1,12 @@
 import requests
 from pymongo import MongoClient
 
-print('SCRIPT')
 mongo_host='mongo'
 mongo_port=27017
 mongo_db='myDB'
-mongo_collection='myCollection'
 
 client = MongoClient(mongo_host, mongo_port)
 db = client[mongo_db]
-
-user = { "name": "Alex", "lastname": "Jackson"}
-users = db.users
-user_id = users.insert_one(user).inserted_id
 
 def fetch_data(api_url):
     response = requests.get(api_url)
@@ -44,5 +38,3 @@ for api_url, collection_name in api_map.items():
     store_data(api_data, collection_name)
 
 client.close()
-
-print('DONE SCRIPT')
