@@ -17,5 +17,17 @@ user = { "name": "Alex", "lastname": "Jackson"}
 users = db.users
 user_id = users.insert_one(user).inserted_id
 
+def fetch_data():
+    response = requests.get('https://jsonplaceholder.typicode.com/posts')
+    if response.status_code == 200:
+        return response.json()
+
+def store_data(data):
+    if (data):
+        result = collection.insert_many(data)
+
+api_data = fetch_data()
+store_data(api_data)
+client.close()
 
 print('DONE SCRIPT')
