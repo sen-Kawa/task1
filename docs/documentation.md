@@ -3,3 +3,4 @@
 [compose.yaml](documentation/compose.md)  
 ## Data retrieval and Loading
 [Python Script](documentation/python_script.md)  
+[Dockerfile](documentation/dockerfile.md)  
