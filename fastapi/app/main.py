@@ -20,10 +20,28 @@ def read_data(collection_name):
 
 @app.get("/")
 def index():
-    return {"hello": "world"}
+    return {"Task": "Data Engineering and API Development Exercise"}
+
+@app.get("/posts")
+def read_posts():
+    return read_data('Posts')
+
+@app.get("/comments")
+def read_comments():
+    return read_data('Comments')
+
+@app.get("/albums")
+def read_albums():
+    return read_data('Albums')
+
+@app.get("/photos")
+def read_photos():
+    return read_data('Photos')
 
 @app.get("/todos")
 def read_todos():
     return read_data('Todos')
 
-
+@app.get("/users")
+def read_users():
+    return read_data('Users')
