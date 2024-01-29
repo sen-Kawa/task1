@@ -11,12 +11,14 @@ services:
   fastapi:
     build: ./fastapi
     container_name: fastapi
-    ports: "8000:8000"
+    ports: 
+      - "8000:8000"
     depends_on:
       - mongo
       - data_retrieval
     networks:
       - network
+    command: bash -c "uvicorn main:app --host 0.0.0.0 --port 8000"
 
 networks:
   network:
