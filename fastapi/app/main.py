@@ -62,4 +62,3 @@ def user_stats():
 def count_posts(userId):
     posts = db['Posts']
     return posts.count_documents({ "userId": userId })
-
