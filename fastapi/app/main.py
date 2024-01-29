@@ -51,10 +51,15 @@ def user_stats():
     data = []
     users = db['Users']
     for user in users.find():
-        data.append({"userId": user["id"]})
+        data.append(
+            {
+                "userId": user["id"],
+                "number_posts": count_posts(user["id"])
+            }
+        )
     return data
 
-# def count_posts(id):
-#     posts = db['Posts']
-#     posts.count_documents({ "userId": id })
+def count_posts(userId):
+    posts = db['Posts']
+    return posts.count_documents({ "userId": userId })
 
