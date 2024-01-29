@@ -10,7 +10,7 @@ docker compose up -d
 
 ### Use
 ```
-docker exec -it task1-mongo-1 bash
+docker exec -it [ CONTAINER NAME ] bash
 mongosh
 ```
 
