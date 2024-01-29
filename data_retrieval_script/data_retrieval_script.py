@@ -31,7 +31,12 @@ def store_data(data, collection_name):
         print("No data to store.")
 
 api_map = {
-        'https://jsonplaceholder.typicode.com/posts': 'Posts'
+        'https://jsonplaceholder.typicode.com/posts': 'Posts',
+        'https://jsonplaceholder.typicode.com/comments': 'Comments',
+        'https://jsonplaceholder.typicode.com/albums': 'Albums',
+        'https://jsonplaceholder.typicode.com/photos': 'Photos',
+        'https://jsonplaceholder.typicode.com/todos': 'Todos',
+        'https://jsonplaceholder.typicode.com/users': 'Users'
 }
 
 for api_url, collection_name in api_map.items():
