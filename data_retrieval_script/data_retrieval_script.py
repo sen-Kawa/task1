@@ -7,34 +7,37 @@ mongo_port=27017
 mongo_db='myDB'
 mongo_collection='myCollection'
 
-api_url='https://jsonplaceholder.typicode.com/users'
-
 client = MongoClient(mongo_host, mongo_port)
 db = client[mongo_db]
-collection = db[mongo_collection]
 
 user = { "name": "Alex", "lastname": "Jackson"}
 users = db.users
 user_id = users.insert_one(user).inserted_id
 
-def fetch_data():
-    response = requests.get('https://jsonplaceholder.typicode.com/posts')
+def fetch_data(api_url):
+    response = requests.get(api_url)
     if response.status_code == 200:
         return response.json()
     else:
         print("Failed to fetch data.")
         return None
 
-def store_data(data):
+def store_data(data, collection_name):
+    collection = db[collection_name]
     if (data):
         result = collection.insert_many(data)
         print("Data stored succesfully.")
     else:
         print("No data to store.")
 
+api_map = {
+        'https://jsonplaceholder.typicode.com/posts': 'Posts'
+}
 
-api_data = fetch_data()
-store_data(api_data)
+for api_url, collection_name in api_map.items():
+    api_data = fetch_data(api_url)
+    store_data(api_data, collection_name)
+
 client.close()
 
 print('DONE SCRIPT')
