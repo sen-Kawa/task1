@@ -45,3 +45,16 @@ def read_todos():
 @app.get("/users")
 def read_users():
     return read_data('Users')
+
+@app.get("/count")
+def user_stats():
+    data = []
+    users = db['Users']
+    for user in users.find():
+        data.append({"userId": user["id"]})
+    return data
+
+# def count_posts(id):
+#     posts = db['Posts']
+#     posts.count_documents({ "userId": id })
+
