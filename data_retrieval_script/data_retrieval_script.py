@@ -21,10 +21,17 @@ def fetch_data():
     response = requests.get('https://jsonplaceholder.typicode.com/posts')
     if response.status_code == 200:
         return response.json()
+    else:
+        print("Failed to fetch data.")
+        return None
 
 def store_data(data):
     if (data):
         result = collection.insert_many(data)
+        print("Data stored succesfully.")
+    else:
+        print("No data to store.")
+
 
 api_data = fetch_data()
 store_data(api_data)
