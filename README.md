@@ -6,3 +6,5 @@
 
 ### Overview
 Develop a pipeline that involves setting up a MongoDB database using Docker Compose, retrieving and storing data from an external API, and exposing this data through FastAPI.
+
+![Diagram](./docs/Diagram.png)
