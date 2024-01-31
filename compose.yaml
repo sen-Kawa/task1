@@ -1,7 +1,7 @@
 services:
   mongo:
     image: mongo
-    container_name: mongodb
+    container_name: mongo
 
   data_retrieval:
     build: ./data_retrieval_script

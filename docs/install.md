@@ -16,7 +16,7 @@ docker compose up --build -d
 ```
 Execute an interactive shell in the container:
 ```
-docker exec -it mongodb bash
+docker exec -it mongo bash
 ```
 Use MongoDB shell `mongosh`.
 To view the databases type `show dbs`, to view the collections `show collections` and to view the desired data type `db.[collection name].find()`
