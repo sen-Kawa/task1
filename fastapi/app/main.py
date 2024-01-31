@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pymongo import MongoClient
 
 app = FastAPI()
@@ -18,6 +18,14 @@ def read_data(collection_name):
         data.append(item_data)
     return data
 
+def read_data_by_id(item_id, collection_name):
+    collection = db[collection_name]
+    item =  collection.find_one({"id": item_id})
+    if item:
+        del item['_id']
+        return item
+    raise HTTPException(status_code=404, detail="ID not found")
+
 @app.get("/")
 def index():
     return {"Task": "Data Engineering and API Development Exercise"}
@@ -26,25 +34,49 @@ def index():
 def read_posts():
     return read_data('Posts')
 
+@app.get("/posts/{post_id}")
+def read_post( post_id: int ):
+    return read_data_by_id(post_id, 'Posts')
+
 @app.get("/comments")
 def read_comments():
     return read_data('Comments')
+
+@app.get("/comments/{comment_id}")
+def read_comment( comment_id: int ):
+    return read_data_by_id(comment_id, 'Comments')
 
 @app.get("/albums")
 def read_albums():
     return read_data('Albums')
 
+@app.get("/albums/{album_id}")
+def read_album( album_id: int ):
+    return read_data_by_id(album_id, 'Albums')
+
 @app.get("/photos")
 def read_photos():
     return read_data('Photos')
+
+@app.get("/photos/{post_id}")
+def read_photo( post_id: int ):
+    return read_data_by_id(photo_id, 'Photos')
 
 @app.get("/todos")
 def read_todos():
     return read_data('Todos')
 
+@app.get("/todos/{todo_id}")
+def read_todo( todo_id: int ):
+    return read_data_by_id(todo_id, 'Todos')
+
 @app.get("/users")
 def read_users():
     return read_data('Users')
+
+@app.get("/users/{user_id}")
+def read_user( user_id: int ):
+    return read_data_by_id(user_id, 'Users')
 
 @app.get("/count")
 def user_stats():
