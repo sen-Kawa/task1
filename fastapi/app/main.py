@@ -58,8 +58,8 @@ def read_album( album_id: int ):
 def read_photos():
     return read_data('Photos')
 
-@app.get("/photos/{post_id}")
-def read_photo( post_id: int ):
+@app.get("/photos/{photo_id}")
+def read_photo( photo_id: int ):
     return read_data_by_id(photo_id, 'Photos')
 
 @app.get("/todos")

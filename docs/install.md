@@ -10,6 +10,7 @@ docker compose up --build
 
 Access FastAPI in your browser `0.0.0.0:8000/docs`
 #### Available routes
+
 ```
 0.0.0.0:8000/
 ```
@@ -17,19 +18,37 @@ Access FastAPI in your browser `0.0.0.0:8000/docs`
 0.0.0.0:8000/posts
 ```
 ```
+0.0.0.0:8000/posts/{POST_ID}
+```
+```
 0.0.0.0:8000/comments
+```
+```
+0.0.0.0:8000/comments/{COMMENT_ID}
 ```
 ```
 0.0.0.0:8000/albums
 ```
 ```
+0.0.0.0:8000/albums/{ALBUM_ID}
+```
+```
 0.0.0.0:8000/photos
+```
+```
+0.0.0.0:8000/photos/{PHOTO_ID}
 ```
 ```
 0.0.0.0:8000/todos
 ```
 ```
+0.0.0.0:8000/todos/{TODO_ID}
+```
+```
 0.0.0.0:8000/users
+```
+```
+0.0.0.0:8000/users/{USER_ID}
 ```
 ```
 0.0.0.0:8000/count
