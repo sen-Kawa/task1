@@ -54,7 +54,8 @@ def user_stats():
         data.append(
             {
                 "userId": user["id"],
-                "number_posts": count_posts(user["id"])
+                "number_posts": count_posts(user["id"]),
+                "number_comments": count_comments(user["email"])
             }
         )
     return data
@@ -62,3 +63,7 @@ def user_stats():
 def count_posts(userId):
     posts = db['Posts']
     return posts.count_documents({ "userId": userId })
+
+def count_comments(userEmail):
+    comments = db['Comments']
+    return comments.count_documents({ "email": userEmail })
