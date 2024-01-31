@@ -9,6 +9,31 @@ docker compose up --build
 ```
 
 Access FastAPI in your browser `0.0.0.0:8000/docs`
+#### Available routes
+```
+0.0.0.0:8000/
+```
+```
+0.0.0.0:8000/posts
+```
+```
+0.0.0.0:8000/comments
+```
+```
+0.0.0.0:8000/albums
+```
+```
+0.0.0.0:8000/photos
+```
+```
+0.0.0.0:8000/todos
+```
+```
+0.0.0.0:8000/users
+```
+```
+0.0.0.0:8000/count
+```
 
 ### To interact with MongoDB
 ```
